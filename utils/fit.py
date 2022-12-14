@@ -1,4 +1,4 @@
-from evaluate import evaluate
+from utils.evaluate import evaluate
 import torch
 from torch.nn.utils import clip_grad_norm_
 import os
