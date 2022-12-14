@@ -1,5 +1,5 @@
-from EncoderBlock import EncoderBlock
-from gen_patches import gen_patches
+from model.EncoderBlock import EncoderBlock
+from model.gen_patches import gen_patches
 import torch
 import torch.nn as nn
 

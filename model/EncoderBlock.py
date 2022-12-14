@@ -1,5 +1,5 @@
-from MultiHeadSelfAttention import MultiHeadSelfAttention
-from MultiLayerPerceptron import MultiLayerPerceptron
+from model.MultiHeadSelfAttention import MultiHeadSelfAttention
+from model.MultiLayerPerceptron import MultiLayerPerceptron
 import torch.nn as nn
 
 class EncoderBlock(nn.Module):
