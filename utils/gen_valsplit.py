@@ -1,13 +1,14 @@
 import pandas as pd
 from sklearn.model_selection import train_test_split
 
-def gen_valsplit(metadata, class_level, val_size: float = .2, random_state = 3380):
+def gen_valsplit(metadata, class_level: str, val_size: float = .2, random_state: int = 3380):
 
   '''
   Función que recibe un dataframe en formato [img_name, split, high, mid, low]. Devuelve el mismo dataframe particionado en train, validation y test en la columna split
   metadata: Dataframe a particionar (pd.DataFrame)
   class_level: Clase sobre la que dividir los datos
   val_size: Porcentaje de los datos de entrenamiento que se irán a validación
+  random_state: Semilla aleatoria para replicar resultadis (int)
   '''
 
   if class_level not in ['high', 'mid', 'low']:
