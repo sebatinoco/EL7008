@@ -21,6 +21,11 @@ class MultiLayerPerceptron(nn.Module):
 
   def forward(self, x):
 
+    '''
+    Función que recibe un tensor de entrada, la transforma a través de capas lineales "Feed-forward".
+    x: tensor a transformar (torch.tensor)
+    '''
+
     x = self.fc1(x) # Capa 1
     x = F.gelu(x) # GELU
     x = self.dropout(x) # Dropout

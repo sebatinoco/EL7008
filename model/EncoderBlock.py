@@ -24,6 +24,11 @@ class EncoderBlock(nn.Module):
 
   def forward(self, x):
 
+    '''
+    Función que recibe un tensor de entrada, computa "Multi-Head Self Attention" y lo transforma con capas lineales.
+    x: tensor a transformar (torch.tensor)
+    '''
+
     res = x # skip connection
     output = self.ln1(x) # LN
     output = self.attention(output) + res # MHSA + skip connection

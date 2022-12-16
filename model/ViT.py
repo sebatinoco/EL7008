@@ -41,6 +41,11 @@ class ViT(nn.Module):
 
   def forward(self, x):
 
+    '''
+    Función que recibe imágenes de entrada en formato de tensor, devuelve una predicción para cada una.
+    x: tensor a transformar (torch.tensor)
+    '''
+
     batch_size, C, H, W = x.shape # dimensiones de entrada
 
     x = gen_patches(x, patch_size = self.patch_size) # generamos patches
