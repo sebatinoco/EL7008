@@ -1,7 +1,7 @@
 import pandas as pd
 from sklearn.model_selection import train_test_split
 
-def gen_valsplit(metadata, class_level, val_size: float = .2):
+def gen_valsplit(metadata, class_level, val_size: float = .2, random_state = 3380):
 
   '''
   Función que recibe un dataframe en formato [img_name, split, high, mid, low]. Devuelve el mismo dataframe particionado en train, validation y test en la columna split
@@ -18,7 +18,8 @@ def gen_valsplit(metadata, class_level, val_size: float = .2):
 
   assert metadata_train.shape[0] + metadata_test.shape[0] == metadata.shape[0]
 
-  X_train, X_val, y_train, y_val = train_test_split(metadata_train['img_name'], metadata_train[class_level], test_size = val_size, stratify = metadata_train[class_level])
+  X_train, X_val, y_train, y_val = train_test_split(metadata_train['img_name'], metadata_train[class_level], test_size = val_size, 
+                                                    stratify = metadata_train[class_level], random_state = 3380)
 
   X_train = pd.DataFrame(X_train)
   X_train['split'] = 'train'
