@@ -2,7 +2,16 @@ import torch.nn as nn
 import torch.nn.functional as F
 
 class MultiLayerPerceptron(nn.Module):
-  def __init__(self, embedding_dim, mlp_dim, dropout, dropout_2 = 0):
+  def __init__(self, embedding_dim: int, mlp_dim: int, dropout: float, dropout_2: float = 0.0):
+
+    '''
+    Clase que implementa la capa de MLP referente al bloque de Encoder de ViT transformer.
+    embedding_dim: Dimensión del embedding de los datos de entrada (int)
+    mlp_dim: Dimensión de la capa lineal MLP para transformar los datos (int)
+    dropout: Dropout a aplicar entre ambas capas lineales (float)
+    dropout_2: Dropout a aplicar después de la última capa lineal (float)
+    '''
+
     super(MultiLayerPerceptron, self).__init__()
 
     self.fc1 = nn.Linear(embedding_dim, mlp_dim)

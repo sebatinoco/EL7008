@@ -3,7 +3,18 @@ from model.MultiLayerPerceptron import MultiLayerPerceptron
 import torch.nn as nn
 
 class EncoderBlock(nn.Module):
-  def __init__(self, embedding_dim, mlp_dim, heads, dropout, dropout_2):
+  def __init__(self, embedding_dim: int, mlp_dim: int, heads: int, dropout: float, dropout_2: float):
+
+    '''
+    Clase que implementa un bloque o "capa" del Encoder, referente al modelo ViT transformer.
+    Se apoya de las clases MultiHeadSelfAttention y MultiLayerPerceptron.
+    embedding_dim: dimensión del embedding de los datos de entrada (int)
+    mlp_dim: Dimensión de la capa lineal MLP para transformar los datos (int)
+    heads: número de "heads" por los que hacer "self-attention" en paralelo (int)
+    dropout: Dropout a aplicar entre ambas capas lineales (float)
+    dropout_2: Dropout a aplicar después de la última capa lineal (float)
+    '''
+
     super(EncoderBlock, self).__init__()
 
     self.attention = MultiHeadSelfAttention(linear_dim = embedding_dim, heads = heads)
@@ -15,10 +26,10 @@ class EncoderBlock(nn.Module):
 
     res = x # skip connection
     output = self.ln1(x) # LN
-    output = self.attention(output) + res # MHSA + RES
+    output = self.attention(output) + res # MHSA + skip connection
 
     res = output # skip connection
     output = self.ln2(output) # LN
-    output = self.mlp(output) + res # MLP + RES
+    output = self.mlp(output) + res # MLP + skip connection
         
     return output

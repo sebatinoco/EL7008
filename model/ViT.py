@@ -4,7 +4,23 @@ import torch
 import torch.nn as nn
 
 class ViT(nn.Module):
-  def __init__(self, img_size, patch_size, embedding_dim, mlp_dim, n_blocks, heads, n_classes, n_channels = 3, dropout = 0.1, dropout_2 = 0.1):
+  def __init__(self, img_size: int, patch_size: int, embedding_dim: int, mlp_dim: int, n_blocks: int, heads: int, 
+              n_classes: int, n_channels: int = 3, dropout: float = 0.1, dropout_2: float = 0.1):
+    
+    '''
+    Clase que implementa el modelo ViT transformer. Se apoya de la clase EncoderBlock y la función gen_patches.
+    img_size: tamaño de las imágenes de entrada (int)
+    patch_size: tamaño de los patches (int)
+    embedding_dim: tamaño de los embeddings a ocupar (int)
+    mlp_dim: tamaño de la capa lineal del MLP a ocupar en el Encoder (int)
+    n_blocks: cantidad de bloques o "capas" en el Encoder
+    heads: número de "heads" por los que hacer "self-attention" en paralelo (int)
+    n_classes: cantidad de clases a predecir (int)
+    n_channels: número de canales de las imágenes de entrada (int)
+    dropout: Dropout a aplicar entre ambas capas lineales (float)
+    dropout_2: Dropout a aplicar después de la última capa lineal (float)
+    '''
+    
     super(ViT, self).__init__()
 
     self.img_size = img_size # dimension de H y W
