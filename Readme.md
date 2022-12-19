@@ -1,6 +1,6 @@
 # Proyecto EL7008
 
-Hola! Este repositorio contiene los archivos utilizados para implementar y entrenar el modelo ViT Transformer con eldataset Yoga-82 mediante `Pytorch`.
+Hola! Este repositorio contiene los archivos utilizados para implementar y entrenar el modelo *Vision Transformer* mediante `Pytorch` y usando el dataset Yoga-82.
 
 A continuación se describe la composición de este repositorio:
 
